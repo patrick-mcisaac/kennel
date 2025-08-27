@@ -24,11 +24,12 @@
 
   .card p {
     width: 40%;
+    text-align: center;
   }
 
   .btn {
     background-color: var(--dark-gray);
-    width: 8rem;
+    width: 9rem;
     height: 4rem;
     border-radius: 1rem;
     color: var(--white);

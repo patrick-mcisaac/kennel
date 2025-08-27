@@ -9,7 +9,7 @@ export const CustomersList = () => {
   }, [])
 
   return (
-    <div>
+    <div className="mb-10 flex flex-col items-center justify-start">
       <h1 className="mt-10 text-center text-[3rem] font-semibold tracking-wider">
         Customers
       </h1>

@@ -9,7 +9,8 @@ import { LocationList } from "../components/location/Location"
 import { LocationProvider } from "../components/location/LocationProvider"
 import { NavBar } from "../components/nav/NavBar"
 import { Welcome } from "../components/welcome/Welcome"
-import { AddAnimal } from "../components/animal/AddAnimal"
+import { AddAnimal } from "../components/forms/AddAnimal"
+import { HireEmployee } from "../components/forms/HireEmployee"
 
 export const ApplicationViews = () => {
   return (
@@ -34,14 +35,7 @@ export const ApplicationViews = () => {
             </>
           }
         />
-        <Route
-          path="animals"
-          element={
-            <>
-              <Outlet />
-            </>
-          }
-        >
+        <Route path="animals">
           <Route
             index
             element={
@@ -70,16 +64,30 @@ export const ApplicationViews = () => {
           />
         </Route>
 
-        <Route
-          path="employees"
-          element={
-            <>
-              <EmployeeProvider>
-                <EmployeeList />
-              </EmployeeProvider>
-            </>
-          }
-        />
+        <Route path="employees">
+          <Route
+            index
+            element={
+              <>
+                <EmployeeProvider>
+                  <EmployeeList />
+                </EmployeeProvider>
+              </>
+            }
+          />
+          <Route
+            path="hire"
+            element={
+              <>
+                <LocationProvider>
+                  <EmployeeProvider>
+                    <HireEmployee />
+                  </EmployeeProvider>
+                </LocationProvider>
+              </>
+            }
+          />
+        </Route>
 
         <Route
           path="customers"

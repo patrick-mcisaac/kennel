@@ -10,7 +10,7 @@ export const AnimalList = () => {
   }, [])
 
   return (
-    <section className="flex flex-col items-center justify-start">
+    <section className="mb-10 flex flex-col items-center justify-start">
       <h1 className="mt-10 text-center text-[3rem] font-semibold tracking-wider">
         Animals
       </h1>

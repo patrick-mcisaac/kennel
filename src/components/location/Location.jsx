@@ -8,7 +8,7 @@ export const LocationList = () => {
     getLocations()
   }, [])
   return (
-    <article>
+    <article className="mb-10 flex flex-col items-center justify-start">
       <h2 className="mt-10 text-center text-[3rem] font-semibold tracking-wider">
         List of Locations
       </h2>

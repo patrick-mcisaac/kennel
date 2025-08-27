@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { AnimalContext } from "./AnimalProvider"
+import { AnimalContext } from "../animal/AnimalProvider"
 import { LocationContext } from "../location/LocationProvider"
 import { CustomersContext } from "../customers/CustomerProvider"
 import { useNavigate } from "react-router-dom"
@@ -33,8 +33,13 @@ export const AddAnimal = () => {
     const locationId = parseInt(animal.locationId)
     const customerId = parseInt(animal.customerId)
 
-    if (locationId === 0 || customerId === 0) {
-      window.alert("Please select a Location and a Customer")
+    if (
+      locationId === 0 ||
+      customerId === 0 ||
+      animal.name === "" ||
+      animal.breed === ""
+    ) {
+      window.alert("Please give us all info")
     } else {
       const newAnimal = {
         name: animal.name,
