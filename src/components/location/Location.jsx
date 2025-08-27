@@ -6,7 +6,7 @@ export const LocationList = () => {
 
   useEffect(() => {
     getLocations()
-  }, [locations])
+  }, [])
   return (
     <article>
       <h2>List of Locations</h2>
