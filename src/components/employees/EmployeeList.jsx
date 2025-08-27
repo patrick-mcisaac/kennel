@@ -10,11 +10,13 @@ export const EmployeeList = () => {
 
   return (
     <section>
-      <h1>Employees</h1>
-      <div>
+      <h1 className="mt-10 text-center text-[3rem] font-semibold tracking-wider">
+        Employees
+      </h1>
+      <div className="mt-[7rem] flex flex-col items-center gap-10">
         {employees?.map((employee) => {
           return (
-            <div key={employee.id}>
+            <div className="card" key={employee.id}>
               <p>{employee.name}</p>
             </div>
           )
