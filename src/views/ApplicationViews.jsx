@@ -9,6 +9,7 @@ import { LocationList } from "../components/location/Location"
 import { LocationProvider } from "../components/location/LocationProvider"
 import { NavBar } from "../components/nav/NavBar"
 import { Welcome } from "../components/welcome/Welcome"
+import { AddAnimal } from "../components/animal/AddAnimal"
 
 export const ApplicationViews = () => {
   return (
@@ -33,17 +34,41 @@ export const ApplicationViews = () => {
             </>
           }
         />
-
         <Route
           path="animals"
           element={
             <>
-              <AnimalProvider>
-                <AnimalList />
-              </AnimalProvider>
+              <Outlet />
             </>
           }
-        />
+        >
+          <Route
+            index
+            element={
+              <>
+                <AnimalProvider>
+                  <AnimalList />
+                </AnimalProvider>
+              </>
+            }
+          />
+          <Route
+            path="add"
+            element={
+              <>
+                <>
+                  <LocationProvider>
+                    <CustomersProvider>
+                      <AnimalProvider>
+                        <AddAnimal />
+                      </AnimalProvider>
+                    </CustomersProvider>
+                  </LocationProvider>
+                </>
+              </>
+            }
+          />
+        </Route>
 
         <Route
           path="employees"

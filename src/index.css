@@ -4,6 +4,7 @@
   --white: rgb(224, 219, 219);
   --grey: rgb(112, 111, 111);
   --light-gray: rgb(196, 196, 196);
+  --dark-gray: #101828;
 }
 
 @layer components {
@@ -12,14 +13,33 @@
     border: 1px solid var(--light-gray);
     padding: 2rem;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     width: 40rem;
     box-shadow: 0px 1px 6px 0px var(--grey);
     border-radius: 0.5rem;
   }
 
-  .button {
-    background-color: var(--grey);
+  .card p {
+    width: 40%;
+  }
+
+  .btn {
+    background-color: var(--dark-gray);
+    width: 8rem;
+    height: 4rem;
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    box-shadow: 0px 1px 6px 0px var(--grey);
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: scale(1.1);
+    transition: all 50ms linear;
   }
 }
