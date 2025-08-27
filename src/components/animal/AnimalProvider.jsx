@@ -24,7 +24,9 @@ export const AnimalProvider = (props) => {
     }).then(getAnimals)
   }
   return (
-    <AnimalContext.Provider value={{ animals, getAnimals, addAnimal }}>
+    <AnimalContext.Provider
+      value={{ animals, setAnimals, getAnimals, addAnimal }}
+    >
       {props.children}
     </AnimalContext.Provider>
   )
