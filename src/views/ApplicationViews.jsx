@@ -11,6 +11,7 @@ import { NavBar } from "../components/nav/NavBar"
 import { Welcome } from "../components/welcome/Welcome"
 import { AddAnimal } from "../components/forms/AddAnimal"
 import { HireEmployee } from "../components/forms/HireEmployee"
+import { NewLocation } from "../components/forms/NewLocation"
 
 export const ApplicationViews = () => {
   return (
@@ -25,16 +26,30 @@ export const ApplicationViews = () => {
         }
       >
         <Route index element={<Welcome />} />
-        <Route
-          path="locations"
-          element={
-            <>
-              <LocationProvider>
-                <LocationList />
-              </LocationProvider>
-            </>
-          }
-        />
+
+        <Route path="locations">
+          <Route
+            index
+            element={
+              <>
+                <LocationProvider>
+                  <LocationList />
+                </LocationProvider>
+              </>
+            }
+          />
+          <Route
+            path="new"
+            element={
+              <>
+                <LocationProvider>
+                  <NewLocation />
+                </LocationProvider>
+              </>
+            }
+          />
+        </Route>
+
         <Route path="animals">
           <Route
             index
