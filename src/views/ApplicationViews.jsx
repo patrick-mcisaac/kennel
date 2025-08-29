@@ -16,6 +16,7 @@ import { AnimalDetails } from "../components/animal/AnimalDetails"
 import { EmployeeDetails } from "../components/employees/EmployeeDetails"
 import { LocationDetails } from "../components/location/LocationDetails"
 import { EditAnimal } from "../components/forms/EditAnimal"
+import { EditLocation } from "../components/forms/EditLocation"
 
 export const ApplicationViews = () => {
   return (
@@ -52,14 +53,24 @@ export const ApplicationViews = () => {
               </>
             }
           />
-          <Route
-            path=":locationId"
-            element={
-              <LocationProvider>
-                <LocationDetails />
-              </LocationProvider>
-            }
-          />
+          <Route path=":locationId">
+            <Route
+              index
+              element={
+                <LocationProvider>
+                  <LocationDetails />
+                </LocationProvider>
+              }
+            />
+            <Route
+              path="edit"
+              element={
+                <LocationProvider>
+                  <EditLocation />
+                </LocationProvider>
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="animals">

@@ -39,7 +39,6 @@ export const EditAnimal = () => {
     const copyAnimal = { ...animal }
     copyAnimal.customerId = parseInt(animal.customerId)
     copyAnimal.locationId = parseInt(animal.locationId)
-    setAnimal(copyAnimal)
 
     if (
       animal.name === "" ||
@@ -50,7 +49,7 @@ export const EditAnimal = () => {
     ) {
       window.alert("Please fill out whole form")
     } else {
-      putAnimal(animal.id, animal).then(() => navigate("/animals"))
+      putAnimal(copyAnimal.id, copyAnimal).then(() => navigate("/animals"))
     }
   }
 
