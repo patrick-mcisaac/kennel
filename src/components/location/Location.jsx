@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { LocationContext } from "./LocationProvider"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const LocationList = () => {
   const { locations, getLocations } = useContext(LocationContext)
@@ -16,17 +16,26 @@ export const LocationList = () => {
       </h2>
       <button
         onClick={() => navigate("/locations/new")}
-        className="btn mt-[4rem]"
+        className="btn mt-[4rem] transition hover:scale-110"
       >
         Add Location
       </button>
       <section className="mt-[7rem] flex flex-col items-center gap-10">
         {locations?.map((location) => {
           return (
-            <div className="card" key={location.id}>
-              <p>{location.name}</p>
-              <p>{location.address}</p>
-            </div>
+            <Link to={`/locations/${location.id}`} key={location.id}>
+              <div className="card-long transition hover:scale-110">
+                <h1 className="text-2xl">{location.name}</h1>
+                <p className="text-2xl">
+                  {location.employees.length} Employee
+                  {location.employees.length === 1 ? "" : "s"}
+                </p>
+                <p className="text-2xl">
+                  {location.animals.length} animal
+                  {location.animals.length === 1 ? "" : "s"} being treated
+                </p>
+              </div>
+            </Link>
           )
         })}
       </section>

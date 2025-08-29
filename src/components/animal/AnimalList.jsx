@@ -16,7 +16,7 @@ export const AnimalList = () => {
       </h1>
       <button
         onClick={() => navigate("/animals/add")}
-        className="btn mt-[4rem]"
+        className="btn mt-[4rem] transition hover:scale-110"
       >
         Make Reservation
       </button>

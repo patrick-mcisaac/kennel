@@ -78,7 +78,7 @@ export const HireEmployee = () => {
           ))}
         </select>
       </fieldset>
-      <button onClick={handleSubmit} className="btn">
+      <button onClick={handleSubmit} className="btn transition hover:scale-110">
         Save Employee
       </button>
     </form>

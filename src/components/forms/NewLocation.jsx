@@ -62,7 +62,7 @@ export const NewLocation = () => {
           value={location.address}
         />
       </fieldset>
-      <button onClick={handleClick} className="btn">
+      <button onClick={handleClick} className="btn transition hover:scale-110">
         Save Location
       </button>
     </form>

@@ -18,7 +18,7 @@ export const EmployeeList = () => {
       </h1>
       <button
         onClick={() => navigate("/employees/hire")}
-        className="btn mt-[4rem] p-1"
+        className="btn mt-[4rem] p-1 transition hover:scale-110"
       >
         Hire Employee
       </button>
