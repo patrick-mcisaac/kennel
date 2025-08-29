@@ -18,6 +18,7 @@ import { LocationDetails } from "../components/location/LocationDetails"
 import { EditAnimal } from "../components/forms/EditAnimal"
 import { EditLocation } from "../components/forms/EditLocation"
 import { EditEmployee } from "../components/forms/EditEmployee"
+import { AnimalSearch } from "../components/animal/AnimalSearch"
 
 export const ApplicationViews = () => {
   return (
@@ -80,6 +81,7 @@ export const ApplicationViews = () => {
             element={
               <>
                 <AnimalProvider>
+                  <AnimalSearch />
                   <AnimalList />
                 </AnimalProvider>
               </>

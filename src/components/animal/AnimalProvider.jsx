@@ -5,6 +5,7 @@ export const AnimalContext = createContext()
 
 export const AnimalProvider = (props) => {
   const [animals, setAnimals] = useState([])
+  const [searchTerms, setSearchTerms] = useState("")
 
   // The context is imported and used by individual components that need data
   const getAnimals = () => {
@@ -57,7 +58,9 @@ export const AnimalProvider = (props) => {
         addAnimal,
         putAnimal,
         getAnimalById,
-        releaseAnimal
+        releaseAnimal,
+        searchTerms,
+        setSearchTerms
       }}
     >
       {props.children}
