@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { EmployeeContext } from "./EmployeeProvider"
 
 export const EmployeeDetails = () => {
@@ -7,6 +7,7 @@ export const EmployeeDetails = () => {
   const { employees, getEmployees } = useContext(EmployeeContext)
 
   const [employee, setEmployee] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     getEmployees().then(() => {
@@ -15,12 +16,20 @@ export const EmployeeDetails = () => {
     })
   }, [employeeId, employees, employee])
   return (
-    <section className="card-long m-auto mt-[10rem] flex-col">
-      <h1 className="text-2xl">{employee?.name}</h1>
-      <div className="flex flex-col gap-3">
-        <p className="w-[100%]">{employee?.location?.name}</p>
-        <p className="w-[100%]">{employee?.location?.address}</p>
-      </div>
-    </section>
+    <main className="flex flex-col items-center justify-center">
+      <section className="card-long m-auto mt-[10rem] flex-col">
+        <h1 className="text-2xl">{employee?.name}</h1>
+        <div className="flex flex-col gap-3">
+          <p className="w-[100%]">{employee?.location?.name}</p>
+          <p className="w-[100%]">{employee?.location?.address}</p>
+        </div>
+      </section>
+      <button
+        onClick={() => navigate(`/employees/details/${employeeId}/edit`)}
+        className="btn mt-[2rem]"
+      >
+        Edit
+      </button>
+    </main>
   )
 }
