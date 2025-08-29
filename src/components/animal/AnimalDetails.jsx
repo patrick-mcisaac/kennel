@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { AnimalContext } from "./AnimalProvider"
 
 export const AnimalDetails = () => {
-  const { animals, getAnimals } = useContext(AnimalContext)
+  const { animals, getAnimals, releaseAnimal } = useContext(AnimalContext)
   const [animal, setAnimal] = useState({})
   const { animalId } = useParams()
 
@@ -17,6 +17,10 @@ export const AnimalDetails = () => {
     const thisAnimal = animals.find((a) => a.id === parseInt(animalId))
     setAnimal(thisAnimal)
   }, [animalId, animals])
+
+  const handleRelease = () => {
+    releaseAnimal(animalId).then(() => navigate("/animals"))
+  }
   return (
     <main className="flex flex-col items-center justify-center">
       <section className="card-long m-auto mt-[10rem]">
@@ -33,12 +37,17 @@ export const AnimalDetails = () => {
           {animal?.customer?.name}
         </p>
       </section>
-      <button
-        onClick={() => navigate(`/animals/details/${animalId}/edit`)}
-        className="btn mt-[2rem]"
-      >
-        Edit
-      </button>
+      <section className="flex gap-[10rem]">
+        <button
+          onClick={() => navigate(`/animals/details/${animalId}/edit`)}
+          className="btn mt-[2rem]"
+        >
+          Edit
+        </button>
+        <button onClick={handleRelease} className="btn mt-[2rem]">
+          Release
+        </button>
+      </section>
     </main>
   )
 }
