@@ -38,7 +38,10 @@
     border-radius: 0.5rem;
   }
 
-  .card p,
+  .card p {
+    text-align: center;
+  }
+
   .card-long p,
   .card-long h1 {
     width: 40%;

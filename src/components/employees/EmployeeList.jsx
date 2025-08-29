@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const EmployeeList = () => {
   const { employees, getEmployees } = useContext(EmployeeContext)
@@ -22,13 +22,14 @@ export const EmployeeList = () => {
       >
         Hire Employee
       </button>
-      <div className="mt-[5rem] flex flex-col items-center gap-10">
+      <div className="mt-[5rem] flex w-[80%] flex-wrap items-center justify-between gap-20">
         {employees?.map((employee) => {
           return (
-            <div className="card" key={employee.id}>
-              <p>{employee.name}</p>
-              <p>{employee.location.name}</p>
-            </div>
+            <Link to={`/employees/details/${employee.id}`} key={employee.id}>
+              <div className="card hover:scale-110">
+                <p className="">{employee.name}</p>
+              </div>
+            </Link>
           )
         })}
       </div>

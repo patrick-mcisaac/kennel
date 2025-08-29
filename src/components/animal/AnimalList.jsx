@@ -20,7 +20,7 @@ export const AnimalList = () => {
       >
         Make Reservation
       </button>
-      <div className="mt-[5rem] flex w-[80%] flex-wrap items-center justify-around gap-20">
+      <div className="mt-[5rem] flex w-[80%] flex-wrap items-center justify-between gap-20">
         {animals.map((animal) => {
           return (
             <Link key={animal.id} to={`/animals/details/${animal.id}`}>
