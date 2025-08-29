@@ -23,7 +23,24 @@
     border-radius: 0.5rem;
   }
 
-  .card p {
+  .card-long {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 45rem;
+    height: 20rem;
+    box-shadow: 0px 1px 6px 0px var(--grey);
+    border-radius: 0.5rem;
+  }
+
+  .card p,
+  .card-long p,
+  .card-long h1 {
     width: 40%;
     text-align: center;
   }

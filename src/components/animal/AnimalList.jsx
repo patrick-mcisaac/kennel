@@ -23,8 +23,8 @@ export const AnimalList = () => {
       <div className="mt-[5rem] flex w-[80%] flex-wrap items-center justify-around gap-20">
         {animals.map((animal) => {
           return (
-            <Link to="/animals/create">
-              <div className="card transition hover:scale-110" key={animal.id}>
+            <Link key={animal.id} to={`/animals/details/${animal.id}`}>
+              <div className="card transition hover:scale-110">
                 <p className="text-2xl tracking-wider">{animal.name}</p>
               </div>
             </Link>

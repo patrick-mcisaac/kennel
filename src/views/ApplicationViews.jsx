@@ -12,6 +12,7 @@ import { Welcome } from "../components/welcome/Welcome"
 import { AddAnimal } from "../components/forms/AddAnimal"
 import { HireEmployee } from "../components/forms/HireEmployee"
 import { NewLocation } from "../components/forms/NewLocation"
+import { AnimalDetails } from "../components/animal/AnimalDetails"
 
 export const ApplicationViews = () => {
   return (
@@ -75,6 +76,14 @@ export const ApplicationViews = () => {
                   </LocationProvider>
                 </>
               </>
+            }
+          />
+          <Route
+            path="details/:animalId"
+            element={
+              <AnimalProvider>
+                <AnimalDetails />
+              </AnimalProvider>
             }
           />
         </Route>
