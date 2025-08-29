@@ -15,6 +15,7 @@ import { NewLocation } from "../components/forms/NewLocation"
 import { AnimalDetails } from "../components/animal/AnimalDetails"
 import { EmployeeDetails } from "../components/employees/EmployeeDetails"
 import { LocationDetails } from "../components/location/LocationDetails"
+import { EditAnimal } from "../components/forms/EditAnimal"
 
 export const ApplicationViews = () => {
   return (
@@ -88,14 +89,28 @@ export const ApplicationViews = () => {
               </>
             }
           />
-          <Route
-            path="details/:animalId"
-            element={
-              <AnimalProvider>
-                <AnimalDetails />
-              </AnimalProvider>
-            }
-          />
+          <Route path="details/:animalId">
+            <Route
+              index
+              element={
+                <AnimalProvider>
+                  <AnimalDetails />
+                </AnimalProvider>
+              }
+            />
+            <Route
+              path="edit"
+              element={
+                <LocationProvider>
+                  <CustomersProvider>
+                    <AnimalProvider>
+                      <EditAnimal />
+                    </AnimalProvider>
+                  </CustomersProvider>
+                </LocationProvider>
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="employees">
