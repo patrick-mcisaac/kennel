@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { AnimalContext } from "./AnimalProvider"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const AnimalList = () => {
   const navigate = useNavigate()
@@ -18,17 +18,16 @@ export const AnimalList = () => {
         onClick={() => navigate("/animals/add")}
         className="btn mt-[4rem]"
       >
-        Add Animal
+        Make Reservation
       </button>
-      <div className="mt-[5rem] flex flex-col items-center gap-10">
+      <div className="mt-[5rem] flex w-[80%] flex-wrap items-center justify-around gap-20">
         {animals.map((animal) => {
           return (
-            <div className="card" key={animal.id}>
-              <p>Name: {animal.name}</p>
-              <p>Breed: {animal.breed}</p>
-              <p>Owner: {animal.customer.name}</p>
-              <p>Location: {animal.location.name}</p>
-            </div>
+            <Link to="/animals/create">
+              <div className="card transition hover:scale-110" key={animal.id}>
+                <p className="text-2xl tracking-wider">{animal.name}</p>
+              </div>
+            </Link>
           )
         })}
       </div>
